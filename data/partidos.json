@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2025-11-08",
+    "time": "10:00",
+    "venue": "Campo 1",
+    "home": "Alfa FC",
+    "away": "FC Quebec",
+    "goals_home": null,
+    "goals_away": null
+  },
+  {
+    "date": "2025-11-08",
+    "time": "12:00",
+    "venue": "Campo 1",
+    "home": "Dismac",
+    "away": "Jicarero",
+    "goals_home": null,
+    "goals_away": null
+  },
+  {
+    "date": "2025-11-08",
+    "time": "14:00",
+    "venue": "Campo 2",
+    "home": "Monitos",
+    "away": "Tlaquiltenango",
+    "goals_home": null,
+    "goals_away": null
+  }
+]
