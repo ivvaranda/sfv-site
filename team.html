@@ -1,0 +1,27 @@
+
+<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Equipo — SFV</title><link rel="stylesheet" href="css/styles.css"/></head><body>
+<header class="header"><div class="container nav">
+<img src="assets/logo.png" alt="SFV logo"/><div class="brand">Superliga de Fútbol Valores</div>
+<a href="index.html">Inicio</a><a href="torneo.html">Torneo</a><a href="equipos.html" style="text-decoration:underline">Equipos</a>
+<a href="galeria.html">Galería</a><a href="reglamento.html">Reglamento</a><a href="contacto.html">Contacto</a>
+</div></header>
+<div class="container" id="team-container"><p class="notice">Cargando equipo…</p></div>
+<div class="footer">© 2025 Superliga de Fútbol Valores · Hecho con 💙💜</div>
+<script src="js/app.js"></script>
+<script>
+function getParam(n){const u=new URL(window.location.href);return u.searchParams.get(n)}
+(async()=>{
+  const slug=getParam('team'); const teams=await loadJSON('data/equipos.json'); const matches=await loadJSON('data/partidos.json');
+  const team=teams.find(t=>t.slug===slug)||teams[0]; const cont=document.getElementById('team-container');
+  const mTeam=matches.filter(m=>m.home===team.name||m.away===team.name);
+  const upcoming=mTeam.filter(m=>m.goals_home==null||m.goals_away==null);
+  const played=mTeam.filter(m=>m.goals_home!=null&&m.goals_away!=null);
+  const header=`<div style="display:flex;gap:16px;align-items:center"><img src="${team.logo}" style="width:80px;height:80px;border-radius:12px;background:white;padding:8px"/><div><h2 style="margin:0">${team.name}</h2><div class="tag">${team.community||''}</div></div></div>`;
+  let up='<div class="card"><h3>Próximos partidos</h3>'; if(upcoming.length===0) up+='<p class="notice">Sin partidos programados.</p>'; else{ up+='<table class="table"><thead><tr><th>Fecha</th><th>Hora</th><th>Local</th><th></th><th>Visitante</th><th>Sede</th></tr></thead><tbody>';
+    upcoming.forEach(m=>{up+=`<tr><td>${m.date||''}</td><td>${m.time||''}</td><td>${m.home}</td><td>vs</td><td>${m.away}</td><td>${m.venue||''}</td></tr>`}); up+='</tbody></table>'; } up+='</div>';
+  let res='<div class="card"><h3>Resultados</h3>'; if(played.length===0) res+='<p class="notice">Aún no hay resultados.</p>'; else{ res+='<table class="table"><thead><tr><th>Fecha</th><th>Local</th><th></th><th>Visitante</th><th>Sede</th></tr></thead><tbody>';
+    played.forEach(m=>{res+=`<tr><td>${m.date||''}</td><td>${m.home}</td><td><b>${m.goals_home} - ${m.goals_away}</b></td><td>${m.away}</td><td>${m.venue||''}</td></tr>`}); res+='</tbody></table>'; } res+='</div>';
+  cont.innerHTML = header + '<div class="grid">'+ up + res + '</div>';
+})();
+</script></body></html>

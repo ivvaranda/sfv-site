@@ -1,26 +1,38 @@
 [
   {
     "name": "Alfa FC",
-    "community": ""
+    "slug": "alfa-fc",
+    "community": "Tlaquiltenango",
+    "logo": "assets/logos/alfa-fc.png"
   },
   {
     "name": "FC Quebec",
-    "community": ""
+    "slug": "fc-quebec",
+    "community": "Tlaquiltenango",
+    "logo": "assets/logos/fc-quebec.png"
   },
   {
     "name": "Dismac",
-    "community": ""
+    "slug": "dismac",
+    "community": "Tlaquiltenango",
+    "logo": "assets/logos/dismac.png"
   },
   {
     "name": "Jicarero",
-    "community": ""
+    "slug": "jicarero",
+    "community": "Jicarero",
+    "logo": "assets/logos/jicarero.png"
   },
   {
     "name": "Monitos",
-    "community": ""
+    "slug": "monitos",
+    "community": "Tlaquiltenango",
+    "logo": "assets/logos/monitos.png"
   },
   {
     "name": "Tlaquiltenango",
-    "community": ""
+    "slug": "tlaquiltenango",
+    "community": "Tlaquiltenango",
+    "logo": "assets/logos/tlaquiltenango.png"
   }
 ]
